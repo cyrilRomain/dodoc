@@ -195,7 +195,7 @@ export default {
           .closeLogOnClick(true)
           .delay(4000)
           .log(this.$t("notifications.project_was_removed"));
-        this.$router.push("/projects");
+        this.$router.push(this.createURLToSpace(this.$route.path));
       }
     },
   },

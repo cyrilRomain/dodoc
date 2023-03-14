@@ -293,6 +293,8 @@ export default function () {
         black: "Noir",
         transparent: "Transparent",
 
+        space: "Espace",
+
         watermark: "Habillage",
         watermark_instructions:
           "Sélectionnez une image à placer dans le coin supérieur droit de la vidéo.",

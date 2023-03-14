@@ -11,21 +11,19 @@ const routes = [
       import(/* webpackChunkName: "HomeView" */ "../views/HomeView.vue"),
   },
   {
-    path: "/projects",
-    name: "Projets",
+    path: "/spaces/:space_slug",
+    name: "Espace",
     component: () =>
-      import(
-        /* webpackChunkName: "ProjectsView" */ "../views/ProjectsView.vue"
-      ),
+      import(/* webpackChunkName: "SpaceView" */ "../views/SpaceView.vue"),
   },
   {
-    path: "/projects/:slug",
+    path: "/spaces/:space_slug/projects/:project_slug",
     name: "Projet",
     component: () =>
       import(/* webpackChunkName: "ProjectView" */ "../views/ProjectView.vue"),
   },
   {
-    path: "/projects/:project_slug/publications/:publication_slug",
+    path: "/spaces/:space_slug/projects/:project_slug/publications/:publication_slug",
     name: "Publication",
     component: () =>
       import(

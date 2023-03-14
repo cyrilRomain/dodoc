@@ -44,17 +44,21 @@
         version {{ $root.app_infos.version }}
       </small>
     </div>
+
+    <SpacesList />
   </div>
 </template>
 
 <script>
 // import SocketStatus from "@/components/.vue";
 import AdminSettings from "@/adc-core/AdminSettings.vue";
+import SpacesList from "@/components/SpacesList.vue";
 
 export default {
   props: {},
   components: {
     AdminSettings,
+    SpacesList,
   },
   data() {
     return {
@@ -72,6 +76,7 @@ export default {
       );
     },
   },
+  methods: {},
 };
 </script>
 <style lang="scss">
@@ -86,6 +91,8 @@ export default {
   max-height: -webkit-fill-available;
 
   display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
   align-items: center;
 
   padding-bottom: 150px;

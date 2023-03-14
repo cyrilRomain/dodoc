@@ -155,7 +155,7 @@ z
       class="_projectInfos--open"
       v-if="context === 'list' || context === 'tiny'"
     >
-      <router-link :to="{ path: '/' + project.$path }">
+      <router-link :to="{ path: createURLFromPath(project.$path) }">
         <div class="_clickZone" />
         <!-- <div class="u-button u-button_red _openBtn" v-if="context === 'list'">
           {{ $t("open") }}&nbsp;<sl-icon name="arrow-up-right" />
