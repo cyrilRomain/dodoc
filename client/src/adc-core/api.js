@@ -181,7 +181,6 @@ export default function () {
       },
 
       folderCreated({ path, meta }) {
-        debugger;
         if (!this.store[path]) this.store[path] = new Array();
         this.store[path].push(meta);
         this.$set(this.store, meta.$path, meta);

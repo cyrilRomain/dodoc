@@ -10,7 +10,7 @@
       <div>
         <router-link
           class="u-buttonLink"
-          :to="{ path: createURLToSpace($route.path) }"
+          :to="{ path: '/+' + $route.params.space_slug }"
           :disabled="$route.name === 'Espace'"
         >
           {{ $t("space") }}

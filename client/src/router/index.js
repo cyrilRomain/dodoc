@@ -11,24 +11,30 @@ const routes = [
       import(/* webpackChunkName: "HomeView" */ "../views/HomeView.vue"),
   },
   {
-    path: "/spaces/:space_slug",
+    path: "/+:space_slug",
     name: "Espace",
     component: () =>
       import(/* webpackChunkName: "SpaceView" */ "../views/SpaceView.vue"),
   },
   {
-    path: "/spaces/:space_slug/projects/:project_slug",
+    path: "/+:space_slug/:project_slug",
     name: "Projet",
     component: () =>
       import(/* webpackChunkName: "ProjectView" */ "../views/ProjectView.vue"),
   },
   {
-    path: "/spaces/:space_slug/projects/:project_slug/publications/:publication_slug",
+    path: "/+:space_slug/:project_slug/publications/:publication_slug",
     name: "Publication",
     component: () =>
       import(
         /* webpackChunkName: "PublicationView" */ "../views/PublicationView.vue"
       ),
+  },
+  {
+    path: "/@:author_slug",
+    name: "Contributeur",
+    component: () =>
+      import(/* webpackChunkName: "AuthorView" */ "../views/AuthorView.vue"),
   },
 ];
 
