@@ -3,9 +3,27 @@
     <div class="u-wips" />
 
     <div v-if="space">
-      <h1>
-        {{ space.title }}
-      </h1>
+      <AuthorField
+        :label="context === 'full' ? $t('contributors') : ''"
+        :authors_paths="space.$authors"
+        :path="space.$path"
+        :can_edit="can_edit_space"
+        :instructions="$t('space_author_instructions')"
+      />
+
+      <TitleField
+        :field_name="'title'"
+        :label="context === 'full' ? $t('title') : ''"
+        class="_title"
+        :content="space.title"
+        :path="space.$path"
+        :required="true"
+        :maxlength="40"
+        :tag="'h1'"
+        :can_edit="can_edit_space"
+        :instructions="$t('project_title_instructions')"
+      />
+
       <TitleField
         :field_name="'description'"
         class="_description"
@@ -13,7 +31,7 @@
         :content="space.description"
         :path="space.$path"
         :maxlength="280"
-        :can_edit="can_edit_project"
+        :can_edit="can_edit_space"
         :instructions="$t('project_desc_instructions')"
       />
 
@@ -101,7 +119,7 @@ export default {
     projects_path() {
       return this.space_path + "/projects";
     },
-    can_edit_project() {
+    can_edit_space() {
       return this.canLoggedinEditProject({
         project_authors: this.space.$authors,
       });

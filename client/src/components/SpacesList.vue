@@ -22,20 +22,18 @@
           </button>
         </fieldset>
       </form>
-
-      <div class="" v-for="space in spaces" :key="space.$path">
-        {{ space.title }}
-        <router-link :to="{ path: createURLFromPath(space.$path) }">
-          {{ $t("open") }}
-        </router-link>
-      </div>
+      <SpacePresentation v-for="space in spaces" :key="space.$path" />
     </div>
   </div>
 </template>
 <script>
+import SpacePresentation from "@/components/SpacePresentation.vue";
+
 export default {
   props: {},
-  components: {},
+  components: {
+    SpacePresentation,
+  },
   data() {
     return {
       spaces: undefined,
@@ -95,11 +93,17 @@ export default {
 }
 
 ._list {
-  display: grid;
-  grid-auto-rows: max-content;
-  grid-gap: calc(var(--spacing) / 1);
-  align-items: stretch;
-  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  // display: grid;
+  // grid-auto-rows: max-content;
+  // grid-gap: calc(var(--spacing) / 1);
+  // align-items: stretch;
+  // grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  gap: calc(var(--spacing) / 1);
+  margin: calc(var(--spacing) / 1);
 
   > * {
     background: var(--panel-color);
