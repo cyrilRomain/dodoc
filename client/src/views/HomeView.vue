@@ -54,7 +54,7 @@
 <script>
 // import SocketStatus from "@/components/.vue";
 import AdminSettings from "@/adc-core/AdminSettings.vue";
-import SpacesList from "@/components/SpacesList.vue";
+import SpacesList from "@/components/space/SpacesList.vue";
 
 export default {
   props: {},

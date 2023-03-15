@@ -1,9 +1,26 @@
 <template>
   <div class="_spaceView">
-    <div class="u-wips" />
-
     <div v-if="space">
       <SpacePresentation :space="space" :can_edit="can_edit_space" />
+
+      <br />
+
+      <DLabel
+        :str="$t('contributors')"
+        :instructions="$t('space_contrib_instr')"
+      />
+
+      <div class="_contributorsList">
+        <div v-for="contributor in contributors" :key="contributor">
+          <sl-avatar
+            image="https://images.unsplash.com/photo-1529778873920-4da4926a72c2?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&q=80"
+            label="Avatar of a gray tabby kitten looking down"
+          />
+          Pauline
+        </div>
+      </div>
+
+      <br /><br />
 
       <h2>Les projets</h2>
 
@@ -47,15 +64,7 @@
       <br />
       <br />
 
-      <ProjectsList :projects="projects" />
-
-      <br />
-      <br />
-
-      <h2>Les contributeurs</h2>
-
-      <div class="">liste des contributeurs à l'espace</div>
-      <div class="u-wips" />
+      <ProjectsList v-if="projects" :projects="projects" />
     </div>
   </div>
 </template>
@@ -76,6 +85,8 @@ export default {
       space: undefined,
       projects: undefined,
       show_create_modal: false,
+
+      contributors: new Array(6).fill(undefined),
     };
   },
   created() {},
@@ -131,8 +142,25 @@ export default {
 </script>
 <style lang="scss" scoped>
 ._spaceView {
-  max-width: 120ch;
+  max-width: var(--max-column-width);
   margin: 0 auto;
   padding: calc(var(--spacing) * 2);
+}
+
+._contributorsList {
+  display: grid;
+  grid-auto-rows: max-content;
+  grid-gap: calc(var(--spacing) / 2);
+  align-items: stretch;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+
+  > * {
+    background: white;
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    gap: calc(var(--spacing) / 2);
+    padding: calc(var(--spacing) / 1);
+  }
 }
 </style>

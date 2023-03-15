@@ -40,22 +40,18 @@
     />
 
     <div class="_list">
-      <SpacePresentation
-        v-for="space in spaces"
-        :key="space.$path"
-        :space="space"
-      />
+      <SpacePreview v-for="space in spaces" :key="space.$path" :space="space" />
     </div>
   </div>
 </template>
 <script>
-import SpacePresentation from "@/components/SpacePresentation.vue";
+import SpacePreview from "@/components/space/SpacePreview.vue";
 import CreateSpace from "@/components/modals/CreateSpace.vue";
 
 export default {
   props: {},
   components: {
-    SpacePresentation,
+    SpacePreview,
     CreateSpace,
   },
   data() {

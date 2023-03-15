@@ -198,6 +198,8 @@ export default {
   --sl-font-size-x-large: 1.66rem;
   --sl-font-size-xx-large: 2rem;
 
+  --max-column-width: 140ch;
+
   accent-color: var(--c-orange);
 }
 

@@ -257,6 +257,7 @@ export default {
 
   margin: 0 auto;
   max-width: 180ch;
+  max-width: var(--max-column-width);
 
   overflow: hidden;
   background: white;

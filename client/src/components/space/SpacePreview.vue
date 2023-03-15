@@ -1,7 +1,13 @@
 <template>
   <div class="_spacePresentation">
-    {{ space.title }}
-    <router-link :to="{ path: createURLFromPath(space.$path) }">
+    <h2>
+      {{ space.title }}
+    </h2>
+
+    <router-link
+      class="u-button u-button_bleuvert"
+      :to="{ path: createURLFromPath(space.$path) }"
+    >
       {{ $t("open") }}
     </router-link>
   </div>
@@ -10,6 +16,7 @@
 export default {
   props: {
     space: Object,
+    can_edit: Boolean,
   },
   components: {},
   data() {
