@@ -3,39 +3,7 @@
     <div class="u-wips" />
 
     <div v-if="space">
-      <AuthorField
-        :label="context === 'full' ? $t('contributors') : ''"
-        :authors_paths="space.$authors"
-        :path="space.$path"
-        :can_edit="can_edit_space"
-        :instructions="$t('space_author_instructions')"
-      />
-
-      <TitleField
-        :field_name="'title'"
-        :label="context === 'full' ? $t('title') : ''"
-        class="_title"
-        :content="space.title"
-        :path="space.$path"
-        :required="true"
-        :maxlength="40"
-        :tag="'h1'"
-        :can_edit="can_edit_space"
-        :instructions="$t('project_title_instructions')"
-      />
-
-      <TitleField
-        :field_name="'description'"
-        class="_description"
-        :label="$t('description')"
-        :content="space.description"
-        :path="space.$path"
-        :maxlength="280"
-        :can_edit="can_edit_space"
-        :instructions="$t('project_desc_instructions')"
-      />
-
-      <br />
+      <SpacePresentation :space="space" :can_edit="can_edit_space" />
 
       <h2>Les projets</h2>
 
@@ -76,7 +44,13 @@
         @openNewProject="openNewProject"
       />
 
+      <br />
+      <br />
+
       <ProjectsList :projects="projects" />
+
+      <br />
+      <br />
 
       <h2>Les contributeurs</h2>
 
@@ -88,12 +62,14 @@
 <script>
 import CreateProject from "@/components/modals/CreateProject.vue";
 import ProjectsList from "@/components/ProjectsList.vue";
+import SpacePresentation from "@/components/space/SpacePresentation.vue";
 
 export default {
   props: {},
   components: {
     CreateProject,
     ProjectsList,
+    SpacePresentation,
   },
   data() {
     return {
@@ -155,7 +131,8 @@ export default {
 </script>
 <style lang="scss" scoped>
 ._spaceView {
-  max-width: 180ch;
+  max-width: 120ch;
   margin: 0 auto;
+  padding: calc(var(--spacing) * 2);
 }
 </style>

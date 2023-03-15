@@ -1,9 +1,16 @@
 <template>
-  <div>SpacePresentation</div>
+  <div class="_spacePresentation">
+    {{ space.title }}
+    <router-link :to="{ path: createURLFromPath(space.$path) }">
+      {{ $t("open") }}
+    </router-link>
+  </div>
 </template>
 <script>
 export default {
-  props: {},
+  props: {
+    space: Object,
+  },
   components: {},
   data() {
     return {};
@@ -16,4 +23,9 @@ export default {
   methods: {},
 };
 </script>
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+._spacePresentation {
+  width: 300px;
+  height: 300px;
+}
+</style>
